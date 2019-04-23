@@ -25,19 +25,19 @@ public class APIForNote {
         currentPage = 1;
     }
 
-    private void addParticipant(Note note){
+    public void addParticipant(Note note){
         listOfParticipants.add(note);
         update();
     }
 
-    private void deleteParticipant(Note note) throws Exception {
+    public void deleteParticipant(Note note) throws Exception {
         if (listOfParticipants.contains(note)) {
             listOfParticipants.remove(note);
         } else throw new Exception("No such Participant");
         update();
     }
 
-    private ArrayList<Note> findBy(FindBy find, Object ob){
+    public ArrayList<Note> findBy(FindBy find, Object ob){
         ArrayList<Note> resultOfSearch = new ArrayList<>();
         for (Note note : listOfParticipants){
             if (find.compareBy(note, ob))
@@ -47,55 +47,61 @@ public class APIForNote {
         return resultOfSearch;
     }
 
-    private void sort(Comparator comp){
+    public void sort(Comparator comp){
         listOfParticipants.sort(comp);
     }
 
-    private int getCurrentPage(){
+    public int getCurrentPage(){
         return currentPage;
     }
 
-    private void setCurrentPage(int page){
+    public void setCurrentPage(int page){
         this.currentPage = page;
     }
 
-    private int getCountOfParticipantsOnOnePage(){
+    public int getCountOfParticipantsOnOnePage(){
         return countOfParticipantsOnOnePage;
     }
 
-    private void setCountOfParticipantsOnOnePage(int count){
+    public void setCountOfParticipantsOnOnePage(int count){
         if (count > 0) {
             this.countOfParticipantsOnOnePage = count;
         }
         update();
     }
 
-    private int getPages(){
+    public void setListOfParticipantOnScreen(){}
+
+    public List<Note> getListOfParticipantOnScreen(){
+        return listOfParticipantOnScreen;
+    }
+
+    public int getPages(){
         return pages;
     }
 
-    private void setPages(int pages){
+    public void setPages(int pages){
         this.pages = pages;
     }
 
-    private void setFirstPage(){
+    public void setFirstPage(){
         currentPage = 1;
         updateInformationOnScreen();
     }
 
-    private void setLastPage(){
+    public void setLastPage(){
         currentPage = getPages();
         updateInformationOnScreen();
     }
 
-    private void previousPage(){
+    public void previousPage(){
         if (pages > 1){
             currentPage--;
         }
         updateInformationOnScreen();
     }
 
-    private void nextPage(){
+    public void nextPage(){
         if (currentPage != pages){
             currentPage++;
         }
@@ -131,7 +137,7 @@ public class APIForNote {
             pages++;
     }
 
-    private void update(){
+    public void update(){
         updateAllPages();
         updateInformationOnScreen();
     }

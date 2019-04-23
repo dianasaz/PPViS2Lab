@@ -1,22 +1,23 @@
 package model;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Note {
     private String nameOfTournament;
-    private int date;
-    private String kindOfSport;
-    private String winner;
+    private Date date;
+    private Enum<Sports> kindOfSport;
+    private FIO winner;
     private int prize;
     private double prizeOfWinner;
 
-    public Note(String nameOfTournament, int date, String kindOfSport, String winner, int prize, int prizeOfWinner){
+    public Note(String nameOfTournament, Date date, Enum<Sports> kindOfSport, FIO winner, int prize, int prizeOfWinner){
         setNameOfTournament(nameOfTournament);
         setKindOfSport(kindOfSport);
         setPrize(prize);
         setWinner(winner);
         setPrizeOfWinner();
-        this.date = date;
+        setDate(date);
     }
 
     public void setNameOfTournament(String nameOfTournament){
@@ -27,11 +28,11 @@ public class Note {
         return nameOfTournament;
     }
 
-    public void setKindOfSport(String kindOfSport){
+    public void setKindOfSport(Enum<Sports> kindOfSport){
         this.kindOfSport = kindOfSport;
     }
 
-    public String getKindOfSport(){
+    public Enum<Sports> getKindOfSport(){
         return kindOfSport;
     }
 
@@ -51,12 +52,20 @@ public class Note {
         return prizeOfWinner;
     }
 
-    public void setWinner(String winner){
+    public void setWinner(FIO winner){
         this.winner = winner;
     }
 
-    public String getWinner(){
+    public FIO getWinner(){
         return winner;
+    }
+
+    public void setDate(Date date){
+        this.date = date;
+    }
+
+    public Date getDate(){
+        return date;
     }
 
     @Override
