@@ -8,25 +8,8 @@
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Dopolnit.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Laba1.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Task5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/APIForNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/APIForNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/comparator/CompareByKindOfSport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/comparator/CompareByKindOfSport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/comparator/CompareByNameOfTournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/comparator/CompareByNameOfTournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/comparator/CompareByNameOfWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/comparator/CompareByNameOfWinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/comparator/CompareByPrize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/comparator/CompareByPrize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/comparator/CompareByPrizeOfWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/comparator/CompareByPrizeOfWinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindByInDiapason.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindByInDiapason.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindByNameOfTournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindByNameOfTournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindByNameOfWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindByNameOfWinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindByPrize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindByPrize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/FindByPrizeOfWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/FindByPrizeOfWinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/control/findBy/findByKindOfSport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/findBy/findByKindOfSport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DateFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FullName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Tournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MyTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MyTableModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Tournament.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            <state relative-caret-position="170">
+              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,24 +47,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/control/APIForNote.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="75" column="41" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="41" />
+            <state relative-caret-position="1309">
+              <caret line="89" column="82" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1456#1457#0" expanded="true" />
+                <element signature="e#1495#1496#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/MyTableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#257#258#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/MyTableModel.java">
+        <entry file="file://$PROJECT_DIR$/src/view/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state relative-caret-position="-2057">
+              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#2219#2220#0" expanded="true" />
+                <element signature="e#2289#2290#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
+                <element signature="e#2522#2523#0" expanded="true" />
+                <element signature="e#2685#2686#0" expanded="true" />
+                <element signature="e#2755#2756#0" expanded="true" />
+                <element signature="e#2935#2936#0" expanded="true" />
+                <element signature="e#2985#2986#0" expanded="true" />
+                <element signature="e#3143#3144#0" expanded="true" />
+                <element signature="e#3177#3178#0" expanded="true" />
+                <element signature="e#3350#3351#0" expanded="true" />
+                <element signature="e#3384#3385#0" expanded="true" />
+                <element signature="e#3557#3558#0" expanded="true" />
+                <element signature="e#3591#3592#0" expanded="true" />
+                <element signature="e#2917#2918#0" expanded="true" />
+                <element signature="e#2945#2946#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/control/findBy/FindByPrize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -135,6 +148,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -160,13 +174,14 @@
         <option value="$PROJECT_DIR$/src/model/FIO.java" />
         <option value="$PROJECT_DIR$/src/model/Sports.java" />
         <option value="$PROJECT_DIR$/src/view/MainPanel.java" />
-        <option value="$PROJECT_DIR$/src/control/APIForNote.java" />
         <option value="$PROJECT_DIR$/src/model/Date.java" />
         <option value="$PROJECT_DIR$/src/model/Note.java" />
         <option value="$PROJECT_DIR$/src/model/DateFormat.java" />
         <option value="$PROJECT_DIR$/src/model/FullName.java" />
         <option value="$PROJECT_DIR$/src/model/Tournament.java" />
         <option value="$PROJECT_DIR$/src/view/MyTableModel.java" />
+        <option value="$PROJECT_DIR$/src/control/APIForNote.java" />
+        <option value="$PROJECT_DIR$/src/view/Table.java" />
       </list>
     </option>
   </component>
@@ -206,6 +221,13 @@
               <item name="laba2" type="b2602c69:ProjectViewProjectNode" />
               <item name="laba2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="findBy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laba2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laba2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -226,6 +248,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -248,12 +271,12 @@
       <updated>1555770890163</updated>
       <workItem from="1555770923642" duration="3994000" />
       <workItem from="1555860179473" duration="17057000" />
-      <workItem from="1556347844125" duration="1809000" />
+      <workItem from="1556347844125" duration="5252000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22860000" />
+    <option name="totallyTimeSpent" value="26303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -265,7 +288,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.328594" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.328594" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2022117" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -273,8 +296,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.328594" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49926794" visible="true" weight="0.328594" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.328594" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.328594" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -382,34 +405,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/findBy/FindByPrize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/findBy/FindByPrizeOfWinner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/DateFormat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="15" lean-forward="true" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/APIForNote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="75" column="41" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -433,24 +432,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Tournament.java">
+    <entry file="file://$PROJECT_DIR$/src/control/APIForNote.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        <state relative-caret-position="1309">
+          <caret line="89" column="82" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/MyTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="34">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#257#258#0" expanded="true" />
             <element signature="e#320#321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/findBy/FindByPrize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/findBy/FindByPrizeOfWinner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Tournament.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2057">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2219#2220#0" expanded="true" />
+            <element signature="e#2289#2290#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2522#2523#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
+            <element signature="e#2755#2756#0" expanded="true" />
+            <element signature="e#2935#2936#0" expanded="true" />
+            <element signature="e#2985#2986#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+            <element signature="e#3177#3178#0" expanded="true" />
+            <element signature="e#3350#3351#0" expanded="true" />
+            <element signature="e#3384#3385#0" expanded="true" />
+            <element signature="e#3557#3558#0" expanded="true" />
+            <element signature="e#3591#3592#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
+            <element signature="e#2945#2946#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -47,6 +47,10 @@ public class APIForNote {
         return resultOfSearch;
     }
 
+    public int getCountAfterSearch(){
+        return countAfterSearch;
+    }
+
     public void sort(Comparator comp){
         listOfParticipants.sort(comp);
     }
@@ -80,8 +84,10 @@ public class APIForNote {
         return pages;
     }
 
-    public void setPages(int pages){
-        this.pages = pages;
+    public void setPages(){
+        if (listOfParticipants.size() % countOfParticipantsOnOnePage == 0)
+            pages = listOfParticipants.size() / countOfParticipantsOnOnePage;
+        else pages = listOfParticipants.size() / countOfParticipantsOnOnePage + 1;
     }
 
     public void setFirstPage(){
