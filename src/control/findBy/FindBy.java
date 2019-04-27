@@ -1,7 +1,7 @@
 package control.findBy;
 
-import model.Note;
+import model.Tournament;
 
 public interface FindBy {
-    public boolean compareBy(Note note, Object ob);
+    public boolean compareBy(Tournament tournament, Object ob);
 }

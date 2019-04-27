@@ -1,11 +1,11 @@
 package control.comparator;
 
-import model.Note;
+import model.Tournament;
 
 import java.util.Comparator;
 
-public class CompareByNameOfTournament implements Comparator<Note>{
-        public int compare(Note one, Note two) {
+public class CompareByNameOfTournament implements Comparator<Tournament>{
+        public int compare(Tournament one, Tournament two) {
             return one.getNameOfTournament().compareTo(two.getNameOfTournament());
         }
     }

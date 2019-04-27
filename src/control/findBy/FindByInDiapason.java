@@ -1,7 +1,7 @@
 package control.findBy;
 
-import model.Note;
+import model.Tournament;
 
 public interface FindByInDiapason {
-    public boolean compareBy(Note note, double high, double low );
+    public boolean compareBy(Tournament tournament, double high, double low );
 }

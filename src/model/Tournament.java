@@ -3,15 +3,15 @@ package model;
 import java.util.Date;
 import java.util.Objects;
 
-public class Note {
+public class Tournament {
     private String nameOfTournament;
     private Date date;
     private Enum<Sports> kindOfSport;
-    private FIO winner;
+    private FullName winner;
     private int prize;
     private double prizeOfWinner;
 
-    public Note(String nameOfTournament, Date date, Enum<Sports> kindOfSport, FIO winner, int prize, int prizeOfWinner){
+    public Tournament(String nameOfTournament, Date date, Enum<Sports> kindOfSport, FullName winner, int prize, int prizeOfWinner){
         setNameOfTournament(nameOfTournament);
         setKindOfSport(kindOfSport);
         setPrize(prize);
@@ -52,11 +52,11 @@ public class Note {
         return prizeOfWinner;
     }
 
-    public void setWinner(FIO winner){
+    public void setWinner(FullName winner){
         this.winner = winner;
     }
 
-    public FIO getWinner(){
+    public FullName getWinner(){
         return winner;
     }
 
@@ -72,13 +72,13 @@ public class Note {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Note note = (Note) o;
-        return date == note.date &&
-                prize == note.prize &&
-                prizeOfWinner == note.prizeOfWinner &&
-                Objects.equals(nameOfTournament, note.nameOfTournament) &&
-                Objects.equals(kindOfSport, note.kindOfSport) &&
-                Objects.equals(winner, note.winner);
+        Tournament tournament = (Tournament) o;
+        return date == tournament.date &&
+                prize == tournament.prize &&
+                prizeOfWinner == tournament.prizeOfWinner &&
+                Objects.equals(nameOfTournament, tournament.nameOfTournament) &&
+                Objects.equals(kindOfSport, tournament.kindOfSport) &&
+                Objects.equals(winner, tournament.winner);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note{" +
+        return "Tournament{" +
                 "nameOfTournament='" + nameOfTournament + '\'' +
                 ", date=" + date +
                 ", kindOfSport='" + kindOfSport + '\'' +

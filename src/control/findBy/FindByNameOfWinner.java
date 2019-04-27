@@ -1,11 +1,11 @@
 package control.findBy;
 
-import model.Note;
+import model.Tournament;
 
 public class FindByNameOfWinner implements FindBy {
     @Override
-    public boolean compareBy(Note note, Object ob) {
+    public boolean compareBy(Tournament tournament, Object ob) {
         String nameOfWinner = (String) ob;
-        return nameOfWinner.equalsIgnoreCase(note.getWinner());
+        return nameOfWinner.equalsIgnoreCase(tournament.getWinner());
     }
 }

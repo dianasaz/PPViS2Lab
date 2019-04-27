@@ -1,19 +1,24 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class FIO {
-    private ArrayList<String> nameOfWinner;
+public class FullName {
+    private String firstName;
+    private String fatherName;
+    private String surname;
+   // private ArrayList<String> nameOfWinner;
 
-    public FIO(String name){
-        nameOfWinner = new ArrayList<>();
-        setNameOfWinner(name);
+    public FullName(String name){
+        List nameOfWinner = new ArrayList();
+        for (String winnersName : name.split(" "))
+            nameOfWinner.add(winnersName);
     }
-
+/*
     private void setNameOfWinner(String str){
         for(String s: str.split(" "))
-            nameOfWinner.add(s);
+          //  nameOfWinner.add(s);
     }
 
     private String getFirstName(){
@@ -36,8 +41,8 @@ public class FIO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FIO fio = (FIO) o;
-        return Objects.equals(nameOfWinner, fio.nameOfWinner);
+        FullName fullName = (FullName) o;
+        return Objects.equals(nameOfWinner, fullName.nameOfWinner);
     }
 
     @Override
@@ -47,8 +52,8 @@ public class FIO {
 
     @Override
     public String toString() {
-        return "FIO{" +
+        return "FullName{" +
                 "nameOfWinner=" + nameOfWinner.get(0) +
                 " " + nameOfWinner.get(1) + " " + nameOfWinner.get(2) + '}';
-    }
+    }*/
 }

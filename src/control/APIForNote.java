@@ -1,15 +1,15 @@
 package control;
 
 import control.findBy.FindBy;
-import model.Note;
+import model.Tournament;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class APIForNote {
-    private List<Note> listOfParticipants;
-    private List<Note> listOfParticipantOnScreen;
+    private List<Tournament> listOfParticipants;
+    private List<Tournament> listOfParticipantOnScreen;
     private int currentPage;
     private int countOfParticipantsOnOnePage;
     private int pages;
@@ -25,23 +25,23 @@ public class APIForNote {
         currentPage = 1;
     }
 
-    public void addParticipant(Note note){
-        listOfParticipants.add(note);
+    public void addParticipant(Tournament tournament){
+        listOfParticipants.add(tournament);
         update();
     }
 
-    public void deleteParticipant(Note note) throws Exception {
-        if (listOfParticipants.contains(note)) {
-            listOfParticipants.remove(note);
+    public void deleteParticipant(Tournament tournament) throws Exception {
+        if (listOfParticipants.contains(tournament)) {
+            listOfParticipants.remove(tournament);
         } else throw new Exception("No such Participant");
         update();
     }
 
-    public ArrayList<Note> findBy(FindBy find, Object ob){
-        ArrayList<Note> resultOfSearch = new ArrayList<>();
-        for (Note note : listOfParticipants){
-            if (find.compareBy(note, ob))
-                resultOfSearch.add(note);
+    public ArrayList<Tournament> findBy(FindBy find, Object ob){
+        ArrayList<Tournament> resultOfSearch = new ArrayList<>();
+        for (Tournament tournament : listOfParticipants){
+            if (find.compareBy(tournament, ob))
+                resultOfSearch.add(tournament);
         }
         countAfterSearch = resultOfSearch.size();
         return resultOfSearch;
@@ -72,7 +72,7 @@ public class APIForNote {
 
     public void setListOfParticipantOnScreen(){}
 
-    public List<Note> getListOfParticipantOnScreen(){
+    public List<Tournament> getListOfParticipantOnScreen(){
         return listOfParticipantOnScreen;
     }
 
@@ -108,8 +108,8 @@ public class APIForNote {
         updateInformationOnScreen();
     }
 
-    public void setListOfParticipants(List<Note> notes) {
-        this.listOfParticipants = notes;
+    public void setListOfParticipants(List<Tournament> tournaments) {
+        this.listOfParticipants = tournaments;
         currentPage = 1;
         update();
     }

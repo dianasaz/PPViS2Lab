@@ -1,21 +1,21 @@
 package view;
 
 import control.APIForNote;
-import model.Note;
+import model.Tournament;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class MyTableModel extends AbstractTableModel {
-    private List<Note> notes;
+    private List<Tournament> tournaments;
 
     public MyTableModel(APIForNote api) {
-        this.notes = api.getListOfParticipantOnScreen();
+        this.tournaments = api.getListOfParticipantOnScreen();
     }
 
     @Override
     public int getRowCount() {
-        return notes.size();
+        return tournaments.size();
     }
 
     @Override
@@ -25,14 +25,14 @@ public class MyTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Note n = notes.get(rowIndex);
+        Tournament n = tournaments.get(rowIndex);
         switch (columnIndex){
             case 0:
                 return n.getNameOfTournament();
             case 1:
                 return n.getKindOfSport();
-           // case 2:
-             //   return n.getWinner();
+            case 2:
+                return n.getDate();
             case 3:
                 return n.getWinner();
             case 4:

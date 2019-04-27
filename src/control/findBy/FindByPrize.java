@@ -1,11 +1,11 @@
 package control.findBy;
 
-import model.Note;
+import model.Tournament;
 
 public class FindByPrize implements FindByInDiapason {
     @Override
-    public boolean compareBy(Note note, double high, double low) {
-        if (note.getPrize() < high && note.getPrize() > low)
+    public boolean compareBy(Tournament tournament, double high, double low) {
+        if (tournament.getPrize() < high && tournament.getPrize() > low)
             return true;
         else return false;
     }
