@@ -8,7 +8,7 @@ public class FullName {
     private String firstName;
     private String fatherName;
     private String surname;
-   // private ArrayList<String> nameOfWinner;
+    private ArrayList<String> nameOfWinner;
 
     public FullName(String name){
         List nameOfWinner = new ArrayList();
@@ -32,7 +32,7 @@ public class FullName {
     private String getSurname(){
         return nameOfWinner.get(2);
     }
-
+*/
     public String getNameOfWinner(){
         return nameOfWinner.toString();
     }
@@ -55,5 +55,5 @@ public class FullName {
         return "FullName{" +
                 "nameOfWinner=" + nameOfWinner.get(0) +
                 " " + nameOfWinner.get(1) + " " + nameOfWinner.get(2) + '}';
-    }*/
+    }
 }

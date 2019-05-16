@@ -1,6 +1,6 @@
 package view;
 
-import control.APIForNote;
+import control.APIForTournament;
 import model.Tournament;
 
 import javax.swing.table.AbstractTableModel;
@@ -9,7 +9,7 @@ import java.util.List;
 public class MyTableModel extends AbstractTableModel {
     private List<Tournament> tournaments;
 
-    public MyTableModel(APIForNote api) {
+    public MyTableModel(APIForTournament api) {
         this.tournaments = api.getListOfParticipantOnScreen();
     }
 
@@ -31,8 +31,8 @@ public class MyTableModel extends AbstractTableModel {
                 return n.getNameOfTournament();
             case 1:
                 return n.getKindOfSport();
-            case 2:
-                return n.getDate();
+          //  case 2:
+             //   return n.getDate();
             case 3:
                 return n.getWinner();
             case 4:

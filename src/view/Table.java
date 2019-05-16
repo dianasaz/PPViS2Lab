@@ -1,6 +1,6 @@
 package view;
 
-import control.APIForNote;
+import control.APIForTournament;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -27,9 +27,9 @@ public class Table {
 
     private JTable table;
     private MyTableModel model;
-    private APIForNote api;
+   // private APIForTournament api;
 
-    public Table(){
+    public Table(APIForTournament api){
         panel = new JPanel();
         panelSettingsMethod(panel);
 

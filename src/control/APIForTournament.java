@@ -1,28 +1,33 @@
 package control;
 
 import control.findBy.FindBy;
+import model.FullName;
+import model.Sports;
 import model.Tournament;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class APIForNote {
+public class APIForTournament {
     private List<Tournament> listOfParticipants;
     private List<Tournament> listOfParticipantOnScreen;
     private int currentPage;
     private int countOfParticipantsOnOnePage;
     private int pages;
 
-
     private int countAfterSearch;
 
-    public APIForNote() {
+    public APIForTournament() {
         listOfParticipants = new ArrayList<>();
         listOfParticipantOnScreen = new ArrayList<>();
         countOfParticipantsOnOnePage = 2;
         pages = 1;
         currentPage = 1;
+        Tournament tournament = new Tournament("Tohsak", Sports.FOOTBALL, new FullName("ndknwk ekwndnek dnjw"), 600);
+        Tournament tournament2 = new Tournament("Tohfwdsssak", Sports.FOOTBALL, new FullName("ndknwkdds ekwndnek dnjw"), 200);
+        addParticipant(tournament);
+        addParticipant(tournament2);
     }
 
     public void addParticipant(Tournament tournament){
