@@ -1,5 +1,5 @@
 package model;
 
-public enum Sports {
+public enum Sport {
     FOOTBALL, HOCKEY, TENNIS, PINGPONG, SWIMMING, GANDBALL;
 }

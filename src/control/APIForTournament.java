@@ -1,18 +1,20 @@
 package control;
 
-import control.findBy.FindBy;
-import model.FullName;
-import model.Sports;
+import control.specification.Specification;
 import model.Tournament;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class APIForTournament {
+
+    private static Logger logger = Logger.getLogger(APIForTournament.class.getName());
     private List<Tournament> listOfParticipants;
     private List<Tournament> listOfParticipantOnScreen;
-    private int currentPage;
+    private int currentPage = 1;
     private int countOfParticipantsOnOnePage;
     private int pages;
 
@@ -21,17 +23,32 @@ public class APIForTournament {
     public APIForTournament() {
         listOfParticipants = new ArrayList<>();
         listOfParticipantOnScreen = new ArrayList<>();
-        countOfParticipantsOnOnePage = 2;
+        countOfParticipantsOnOnePage = 5;
         pages = 1;
-        currentPage = 1;
-        Tournament tournament = new Tournament("Tohsak", Sports.FOOTBALL, new FullName("ndknwk ekwndnek dnjw"), 600);
-        Tournament tournament2 = new Tournament("Tohfwdsssak", Sports.FOOTBALL, new FullName("ndknwkdds ekwndnek dnjw"), 200);
-        addParticipant(tournament);
-        addParticipant(tournament2);
-    }
 
+     //   addParticipant(new Tournament("Tohsak", Sport.FOOTBALL, "ndknwk ekwndnek dnjw", 600, 138));
+     //   addParticipant(new Tournament("Tohfwdsssak", Sport.FOOTBALL, "ndknwkdds ekwndnek dnjw", 200, 12));
+     //   addParticipant(new Tournament("sssak", Sport.FOOTBALL, "nk dnjw", 23, 12));
+    }
+/*
+    public APIForTournament(List<Tournament> list) {
+        if (listOfParticipants != null) {
+            for (Tournament tournament : list) {
+                listOfParticipants.add(tournament);
+            }
+        }
+      //  this.listOfParticipants = listOfParticipants;
+        listOfParticipantOnScreen = new ArrayList<>();
+        countOfParticipantsOnOnePage = 5;
+        pages = 1;
+        logger.log(Level.INFO, listOfParticipants.toString());
+    }
+*/
     public void addParticipant(Tournament tournament){
         listOfParticipants.add(tournament);
+        if (pages < listOfParticipants.size()){
+            pages++;
+        }
         update();
     }
 
@@ -42,14 +59,15 @@ public class APIForTournament {
         update();
     }
 
-    public ArrayList<Tournament> findBy(FindBy find, Object ob){
-        ArrayList<Tournament> resultOfSearch = new ArrayList<>();
-        for (Tournament tournament : listOfParticipants){
-            if (find.compareBy(tournament, ob))
-                resultOfSearch.add(tournament);
+    public List<Tournament> findBy(Specification specification){
+        List<Tournament> result = new ArrayList<>();
+        for (Tournament tournament: listOfParticipants){
+            if (specification.match(tournament)) {
+                result.add(tournament);
+                logger.log(Level.INFO, "find" + tournament);
+            }
         }
-        countAfterSearch = resultOfSearch.size();
-        return resultOfSearch;
+        return result;
     }
 
     public int getCountAfterSearch(){
@@ -62,6 +80,14 @@ public class APIForTournament {
 
     public int getCurrentPage(){
         return currentPage;
+    }
+
+    public int getNextPage(){
+        return currentPage++;
+    }
+
+    public int getPrevPage(){
+        return currentPage--;
     }
 
     public void setCurrentPage(int page){
@@ -125,6 +151,10 @@ public class APIForTournament {
         update();
     }
 
+    public List<Tournament> getListOfParticipants() {
+        return listOfParticipants;
+    }
+
     private void updateInformationOnScreen() {
         int start = (currentPage - 1) * countOfParticipantsOnOnePage;
         int finish;
@@ -151,5 +181,12 @@ public class APIForTournament {
     public void update(){
         updateAllPages();
         updateInformationOnScreen();
+    }
+
+    @Override
+    public String toString() {
+        return "APIForTournament{" +
+                "listOfParticipants=" + listOfParticipants +
+                '}';
     }
 }

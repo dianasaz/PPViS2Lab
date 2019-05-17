@@ -4,18 +4,20 @@ import java.util.Objects;
 
 public class Tournament {
     private String nameOfTournament;
-    //private Date date;
-    private Enum<Sports> kindOfSport;
-    private FullName winner;
+    private int date;
+    private Enum<Sport> kindOfSport;
+    private String winner;
     private int prize;
     private double prizeOfWinner;
 
-    public Tournament(String nameOfTournament, Enum<Sports> kindOfSport, FullName winner, int prize){
-        setNameOfTournament(nameOfTournament);
-        setKindOfSport(kindOfSport);
-        setPrize(prize);
-        setWinner(winner);
+    public Tournament(String nameOfTournament, Enum<Sport> kindOfSport, String winner, int prize, int date){
+        this.kindOfSport = kindOfSport;
+        this.nameOfTournament = nameOfTournament;
+        this.prize = prize;
         setPrizeOfWinner();
+        this.prizeOfWinner = getPrizeOfWinner();
+        this.winner = winner;
+        this.date = date;
         //setDate(date);
     }
 
@@ -27,12 +29,12 @@ public class Tournament {
         return nameOfTournament;
     }
 
-    public void setKindOfSport(Enum<Sports> kindOfSport){
+    public void setKindOfSport(Enum<Sport> kindOfSport){
         this.kindOfSport = kindOfSport;
     }
 
-    public Sports getKindOfSport(){
-        return (Sports) kindOfSport;
+    public Sport getKindOfSport(){
+        return (Sport) kindOfSport;
     }
 
     public void setPrize(int prize){
@@ -51,11 +53,11 @@ public class Tournament {
         return prizeOfWinner;
     }
 
-    public void setWinner(FullName winner){
+    public void setWinner(String winner){
         this.winner = winner;
     }
 
-    public FullName getWinner(){
+    public String getWinner(){
         return winner;
     }
 
@@ -63,9 +65,9 @@ public class Tournament {
  //       this.date = date;
   //  }
 
-  //  public Date getDate(){
-  //      return date;
-  //  }
+    public int getDate(){
+        return date;
+    }
 
     @Override
     public boolean equals(Object o) {

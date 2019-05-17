@@ -1,13 +1,10 @@
 package view;
 
 import control.APIForTournament;
-import model.FullName;
-import model.Sports;
-import model.Tournament;
+import exception.InvalidDataException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Date;
 
 public class MainApi {
     private Table table;
@@ -15,22 +12,26 @@ public class MainApi {
     private Container container;
     private JFrame frame;
 
-    public MainApi(){
+    public MainApi() throws InvalidDataException {
         frame = new JFrame();
         frame.setTitle("Lab1");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(800, 500);
         container = frame.getContentPane();
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
         apiForTournament = new APIForTournament();
         table = new Table(apiForTournament);
         container.add(table.getPanel());
+        //container.add(table.getPanelButtons());
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
-    public static void main(String... args){
+    public static void main(String... args) throws InvalidDataException {
         MainApi mainApi = new MainApi();
 
-       // Tournament tournament = new Tournament("Tohsak", Sports.FOOTBALL, new FullName("ndknwk ekwndnek dnjw"), 600);
+       // Tournament tournament = new Tournament("Tohsak", Sport.FOOTBALL, new FullName("ndknwk ekwndnek dnjw"), 600);
         //apiForTournament.addParticipant(tournament);
     }
 }
