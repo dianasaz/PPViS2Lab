@@ -8,76 +8,28 @@
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Dopolnit.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Laba1.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Laba1PPvIS/src/Task1/Task5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laba2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/META-INF/laba2.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/APIForTournament.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/comparator/CompareByKindOfSport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/comparator/CompareByNameOfTournament.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/comparator/CompareByNameOfWinner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/comparator/CompareByPrize.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/comparator/CompareByPrizeOfWinner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/ByNameOfTournamentSpecification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/ByNameOfWinnerSpecification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/ByPrizeOfWinnerSpecification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/ByPrizeSpecification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/BySportSpecification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/control/specification/Specification.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/exception/InvalidDataException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/model/FullName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/model/Sport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/model/Tournament.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Dialog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/InvalidDataException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/MainApi.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/MyTableModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/SearchButton$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/SearchButton.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$3$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/Table.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/laba2/view/TableBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package model;" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/APIForTournament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/ByNameOfTournamentSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/ByNameOfWinnerSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/ByPrizeOfWinnerSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/ByPrizeSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/BySportSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/control/specification/Specification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/FullName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Sport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Tournament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Dialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/InvalidDataException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/MainApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/MyTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/RemoveButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/SearchButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/TableBase.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../repository/src/main/java/book/repository/Repository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../repository/src/main/java/book/repository/Specification.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../repository/src/main/java/book/repository/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../repository/src/main/java/book/repository/UserRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../repository/src/test/java/book/repository/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/RemoveButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/laba2/view/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/laba2/view/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RemoveButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RemoveButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Table.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,16 +55,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="91" column="66" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="66" />
+            <state relative-caret-position="198">
+              <caret line="170" column="25" selection-start-line="170" selection-start-column="25" selection-end-line="170" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4555#4556#0" expanded="true" />
                 <element signature="e#4621#4622#0" expanded="true" />
-                <element signature="e#10175#10176#0" expanded="true" />
-                <element signature="e#10207#10208#0" expanded="true" />
-                <element signature="e#10235#10236#0" expanded="true" />
-                <element signature="e#10263#10264#0" expanded="true" />
+                <element signature="e#10174#10175#0" expanded="true" />
+                <element signature="e#10206#10207#0" expanded="true" />
+                <element signature="e#10234#10235#0" expanded="true" />
+                <element signature="e#10262#10263#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/RemoveButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="-459">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -382,12 +334,12 @@
       <workItem from="1558312537663" duration="288000" />
       <workItem from="1558312858600" duration="52000" />
       <workItem from="1558313010847" duration="8767000" />
-      <workItem from="1558387469454" duration="1398000" />
+      <workItem from="1558387469454" duration="2470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83746000" />
+    <option name="totallyTimeSpent" value="84818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,6 +352,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.17019667" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.27987897" />
@@ -408,14 +361,14 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49848714" weight="0.32569557" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48260212" weight="0.3747954" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48260212" visible="true" weight="0.3747954" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969743" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4924357" visible="true" weight="0.32569557" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4924357" weight="0.32569557" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5173979" side_tool="true" weight="0.3747954" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.48638427" weight="0.32569557" />
@@ -657,8 +610,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/RemoveButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        <state relative-caret-position="-459">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -667,16 +620,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" column="66" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="66" />
+        <state relative-caret-position="198">
+          <caret line="170" column="25" selection-start-line="170" selection-start-column="25" selection-end-line="170" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4555#4556#0" expanded="true" />
             <element signature="e#4621#4622#0" expanded="true" />
-            <element signature="e#10175#10176#0" expanded="true" />
-            <element signature="e#10207#10208#0" expanded="true" />
-            <element signature="e#10235#10236#0" expanded="true" />
-            <element signature="e#10263#10264#0" expanded="true" />
+            <element signature="e#10174#10175#0" expanded="true" />
+            <element signature="e#10206#10207#0" expanded="true" />
+            <element signature="e#10234#10235#0" expanded="true" />
+            <element signature="e#10262#10263#0" expanded="true" />
           </folding>
         </state>
       </provider>

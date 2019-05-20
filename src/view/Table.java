@@ -90,8 +90,25 @@ public class Table {
         addToTableBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new RemoveButton(apiForTournament);
-                update();
+
+                Dialog dialog = new Dialog(5);
+                dialog.button.setText("add");
+                dialog.button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (dialog.getTextName().length() == 0 || dialog.getNameOfWinner().length() == 0 || dialog.getPrize().length() == 0 || dialog.getDate().length() == 0 || dialog.checkSport.getSelectedItem() == Sport.NOTHING) {
+                            JOptionPane.showMessageDialog(null, "Check information you put", "Error", JOptionPane.PLAIN_MESSAGE);
+                        } else {
+                            Tournament tournament = new Tournament(dialog.getTextName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.getPrize()), Integer.valueOf(dialog.getDate()));
+                            apiForTournament.addParticipant(tournament);
+                            if (pages < apiForTournament.getListOfParticipants().size()){
+                                pages++;
+                            }
+                            update();
+                            logger.log(Level.INFO, tournament+ " was added");
+                        }
+                    }
+                });
             }
         });
 
