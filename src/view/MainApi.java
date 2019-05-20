@@ -1,7 +1,6 @@
 package view;
 
 import control.APIForTournament;
-import exception.InvalidDataException;
 
 import javax.swing.*;
 import java.awt.*;

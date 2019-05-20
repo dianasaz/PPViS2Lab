@@ -34,6 +34,7 @@ public class Dialog extends JDialog {
         textName = new JTextField();
         textDate = new JTextField();
         checkSport = new JComboBox();
+        checkSport.addItem(Sport.NOTHING);
         checkSport.addItem(Sport.FOOTBALL);
         checkSport.addItem(Sport.HOCKEY);
         checkSport.addItem(Sport.GANDBALL);
@@ -51,7 +52,6 @@ public class Dialog extends JDialog {
         fieldsPanel.add(textDate);
         fieldsPanel.add(textPrize);
         fieldsPanel.add(checkSport);
-        //fieldsPanel.add(prizeOfWinner);
         buttonPanel.add(button);
 
         mainPanel.add(fieldsPanel);
@@ -78,13 +78,14 @@ public class Dialog extends JDialog {
             }
         }
         frame.getContentPane().add(mainPanel);
-        frame.pack();
+        frame.setSize(360, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        dialog.pack();
 
 
 
-        mainPanel.setMinimumSize(new Dimension(200, 200));
+        mainPanel.setMinimumSize(new Dimension(500, 500));
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     }
@@ -95,20 +96,24 @@ public class Dialog extends JDialog {
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)));
     }
 
-    public String getName(){
+    public String getTextName(){
         return textName.getText();
     }
 
-    public JTextField getPrize(){
-        return textPrize;
+    public String getPrize(){
+        return textPrize.getText();
     }
 
-    public JTextField getDate(){
-        return textDate;
+    public String getDate(){
+        return textDate.getText();
     }
 
     public String getNameOfWinner(){
         return textNameOfWinner.getText();
+    }
+
+    public String getPrizeOfWinner(){
+        return prizeOfWinner.getText();
     }
 
 

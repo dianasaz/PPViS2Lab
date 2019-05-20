@@ -6,7 +6,6 @@ import control.specification.ByNameOfWinnerSpecification;
 import control.specification.ByPrizeOfWinnerSpecification;
 import control.specification.ByPrizeSpecification;
 import control.specification.BySportSpecification;
-import exception.InvalidDataException;
 import model.Sport;
 import model.Tournament;
 
@@ -43,14 +42,11 @@ public class Table {
     private JTable table;
     private MyTableModel model;
 
-   // private JScrollPane scrollPane;
+    private JScrollPane scrollPane;
 
     private int page = 1;
-//    private List<Tournament> listOfParticipantOnScreen;
- //   private int countOfParticipantsOnOnePage;
     private int pages;
     private APIForTournament apiForTournament;
-   // private APIForTournament api;
 
     private static Logger logger = Logger.getLogger(Table.class.getName());
 
@@ -78,7 +74,7 @@ public class Table {
 
         model = new MyTableModel(apiForTournament);
         table = new JTable(model);
-    //    scrollPane = new JScrollPane(table);
+        scrollPane = new JScrollPane(table);
 
         page = 1;
         pages = 1;
@@ -88,98 +84,21 @@ public class Table {
         apiForTournament.addParticipant(new Tournament("European games", Sport.FOOTBALL, "Vlad Ponchikod", 400, 14));
 
         update();
-        table.setSize(500,500);
+        table.setSize(new Dimension(600, 600));
         table.setPreferredScrollableViewportSize(new Dimension(250, 100));
 
         addToTableBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
-                Dialog dialog = new Dialog(5);
-                dialog.button.setText("add");
-                dialog.button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (dialog.getName() == null | dialog.getNameOfWinner() == null | dialog.getPrize().getText() == null | dialog.getDate() == null) {
-                            try {
-                                throw new InvalidDataException("Check information");
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                            }
-                        } else {
-                            Tournament tournament = new Tournament(dialog.getName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.textPrize.getText()), Integer.valueOf(dialog.textDate.getText()));
-                            apiForTournament.addParticipant(tournament);
-                            if (pages < apiForTournament.getListOfParticipants().size()){
-                                pages++;
-                            }
-                            update();
-                            logger.log(Level.INFO, tournament+ " was added");
-                        }
-                    }
-                });
+                new RemoveButton(apiForTournament);
+                update();
             }
         });
 
         buttonSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Dialog dialog = new Dialog(6);
-                dialog.checkSport.addItem(Sport.NOTHING);
-                dialog.button.setText("search");
-                dialog.button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        List<Tournament> list = new ArrayList<>();
-                        if (dialog.textName.getText() != null || dialog.textName.getText() != "") {
-                            list = apiForTournament.findBy(new ByNameOfTournamentSpecification(dialog.textName.getText()));
-                            logger.log(Level.INFO, "Find by name");
-                        }/* else if (dialog.textDate.getText() != "") {
-                            list = apiForTournament.findBy(new B(dialog.textNameOfWinner.getText()));
-                            logger.log(Level.INFO, "Find by date");
-                        }*/
-                        if (list.size() == 0) {
-                            if (dialog.checkSport.getSelectedItem() != Sport.NOTHING) {
-                                list = apiForTournament.findBy(new BySportSpecification((Sport) dialog.checkSport.getSelectedItem()));
-                                logger.log(Level.INFO, "Find by sport");
-                            } else if (dialog.textNameOfWinner.getText() != null || dialog.textNameOfWinner.getText() != "") {
-                                list = apiForTournament.findBy(new ByNameOfWinnerSpecification(dialog.textNameOfWinner.getText()));
-                                logger.log(Level.INFO, "Find by name of winner");
-                            }
-                        }
-                        if (list.size() == 0) {
-                            if (dialog.prizeOfWinner.getText() != null || dialog.prizeOfWinner.getText() != "") {
-                                String diapason = dialog.prizeOfWinner.getText();
-                                String[] strings = diapason.split(" ");
-                                list = apiForTournament.findBy(new ByPrizeOfWinnerSpecification(Double.valueOf(strings[0]), Double.valueOf(strings[1])));
-                                logger.log(Level.INFO, "Find by prize of winner");
-                            } else if (dialog.textPrize.getText() != null || dialog.textPrize.getText() != "") {
-                                list = apiForTournament.findBy(new ByPrizeSpecification(Integer.valueOf(dialog.textPrize.getText())));
-                                logger.log(Level.INFO, "Find by prize");
-                            }
-                        }
-
-                            JFrame frameOne = new JFrame();
-                            frameOne.setTitle("result of search");
-                            frameOne.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                            frameOne.setSize(800, 500);
-
-                            JLabel countAfterSearch = new JLabel("Result of search: " + String.valueOf(apiForTournament.getCountAfterSearch()));
-
-                            Container containerOne = frameOne.getContentPane();
-                            containerOne.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-                            APIForTournament searchTournament = new APIForTournament();
-                            for (Tournament tournament : list) {
-                                searchTournament.addParticipant(tournament);
-                            }
-                            TableBase tableBase = new TableBase(searchTournament);
-
-                            containerOne.add(tableBase.getPanel());
-                            containerOne.add(countAfterSearch);
-                            frameOne.setLocationRelativeTo(null);
-                            frameOne.setVisible(true);
-                        }
-                });
+                new SearchButton(apiForTournament);
             }
         });
 
@@ -192,15 +111,33 @@ public class Table {
                 dialog.button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (dialog.getName() == null| dialog.getNameOfWinner() == null | dialog.getPrize().getText() == null | dialog.getDate() == null) {
-                            try {
-                                throw new InvalidDataException("Check information");
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
+                            List<Tournament> list = new ArrayList<>();
+                            boolean flag = true;
+                            while (flag) {
+                                if (dialog.getTextName().length() != 0) {
+                                    list = apiForTournament.findBy(new ByNameOfTournamentSpecification(dialog.textName.getText()));
+                                    break;
+                                }
+                                if (dialog.checkSport.getSelectedItem() != Sport.NOTHING) {
+                                    list = apiForTournament.findBy(new BySportSpecification((Sport) dialog.checkSport.getSelectedItem()));
+                                    break;
+                                }
+                                if (dialog.getNameOfWinner().length() != 0) {
+                                    list = apiForTournament.findBy(new ByNameOfWinnerSpecification(dialog.getNameOfWinner()));
+                                    break;
+                                }
+                                if (dialog.getPrizeOfWinner().length() != 0) {
+                                    String diapason = dialog.getPrizeOfWinner();
+                                    String[] strings = diapason.split(" ");
+                                    list = apiForTournament.findBy(new ByPrizeOfWinnerSpecification(Double.valueOf(strings[0]), Double.valueOf(strings[1])));
+                                    break;
+                                }
+                                if (dialog.getPrize().length() != 0) {
+                                    list = apiForTournament.findBy(new ByPrizeSpecification(Integer.valueOf(dialog.getPrize())));
+                                    break;
+                                }
                             }
-                        } else {
-                            if (dialog.textName != null){
-                            List<Tournament> list= apiForTournament.findBy(new ByNameOfTournamentSpecification(dialog.textName.getText()));
+
                             for (Tournament tournament: list){
                                 try {
                                     apiForTournament.deleteParticipant(tournament);
@@ -209,9 +146,9 @@ public class Table {
                                 }
                             }
                             update();
+
                         }
-                        }
-                    }
+
                 });
             }
         });
@@ -244,8 +181,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setFirstPage();
-                currentPage.setText("1");
-                model.fireTableDataChanged();
+                update();
             }
         });
 
@@ -253,8 +189,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setLastPage();
-                model.fireTableDataChanged();
-                currentPage.setText(String.valueOf(getPages()));
+                update();
             }
         });
 
@@ -262,9 +197,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nextPage();
-               // update();
-                model.fireTableDataChanged();
-                currentPage.setText(String.valueOf(page));
+                update();
             }
         });
 
@@ -272,16 +205,12 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 previousPage();
-              //  update();
-                model.fireTableDataChanged();
-                currentPage.setText(String.valueOf(page));
+                update();
             }
         });
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        //panelButtons.setLayout(new BoxLayout(panelButtons, BoxLayout.LINE_AXIS));
-     //   mainPanel.add(scrollPane);
-        mainPanel.add(table);
+        mainPanel.add(scrollPane);
         panelButtons.add(addToTableBtn);
         panelButtons.add(buttonSearch);
         panelButtons.add(buttonRemove);
@@ -300,7 +229,6 @@ public class Table {
     }
 
     public void panelSettingsMethod(JPanel panel){
-       //  panel.setPreferredSize(new Dimension(200,120));
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createBevelBorder(BevelBorder.RAISED),
                 BorderFactory.createEmptyBorder(25, 25, 25, 25)));
@@ -319,86 +247,36 @@ public class Table {
         return mainPanel;
     }
 
-    public int getPage(){
-        return page;
-    }
-
-    //public int getNextPage(){
-     //   return currentPage++;
-    //}
-
-    //public int getPrevPage(){
-   //     return currentPage--;
-   // }
-
-    public void setCurrentPage(int page){
-        this.page = page;
-    }
-
- //   public int getCountOfParticipantsOnOnePage(){
-     //   return countOfParticipantsOnOnePage;
- //   }
-/*
-    public void setCountOfParticipantsOnOnePage(int count){
-        if (count > 0) {
-            this.countOfParticipantsOnOnePage = count;
-        }
-        update();
-    }
-
-    //public void setListOfParticipantOnScreen(){}
-
-    public List<Tournament> getListOfParticipantOnScreen(){
-        return listOfParticipantOnScreen;
-    }
-*/
     public int getPages(){
         return pages;
     }
 
-    public void setPages(){
-        if (apiForTournament.getListOfParticipants().size() %  apiForTournament.getCountOfParticipantsOnOnePage() == 0)
-            pages = apiForTournament.getListOfParticipants().size() / apiForTournament.getCountOfParticipantsOnOnePage();
-        else pages = apiForTournament.getListOfParticipants().size() / apiForTournament.getCountOfParticipantsOnOnePage() + 1;
-
-    }
-
     public void setFirstPage(){
         page = 1;
-        updateInformationOnScreen();
+        update();
     }
 
     public void setLastPage(){
         page = getPages();
-        updateInformationOnScreen();
+        update();
     }
 
     public void previousPage(){
         if (pages > 1){
             page--;
         }
-        updateInformationOnScreen();
+        update();
     }
 
     public void nextPage(){
         if (page != pages){
             page++;
         }
-        updateInformationOnScreen();
-    }
-/*
-    public void setListOfParticipants(List<Tournament> tournaments) {
-        apiForTournament.getListOfParticipants() = tournaments;
-        currentPage = 1;
         update();
     }
 
-    public List<Tournament> getListOfParticipants() {
-        return listOfParticipants;
-    }
-*/
     private void updateInformationOnScreen() {
-        int start = (page - 1) * apiForTournament.getCountOfParticipantsOnOnePage();
+        int start = (page-1) * apiForTournament.getCountOfParticipantsOnOnePage();
         int finish;
         if (apiForTournament.getListOfParticipants().size() >= page * apiForTournament.getCountOfParticipantsOnOnePage()) {
             finish = page * apiForTournament.getCountOfParticipantsOnOnePage();
@@ -423,10 +301,8 @@ public class Table {
     public void update(){
         updateAllPages();
         updateInformationOnScreen();
+        currentPage.setText(page + " of " + pages);
         model.fireTableDataChanged();
     }
-/*
-    public void setListOfParticipantOnScreen(List<Tournament> listOfParticipantOnScreen) {
-        apiForTournament.setListOfParticipantOnScreen() = listOfParticipantOnScreen;
-    }*/
+
 }
