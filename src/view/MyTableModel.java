@@ -7,11 +7,22 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class MyTableModel extends AbstractTableModel {
+    private String header[] = new String[]{"Tournament", "Sport", "Date", "Winner", "Prize", "Prize of winner"};
+    private static final int TOURNAMENT = 0;
+    private static final int SPORT = 1;
+    private static final int DATE = 2;
+    private static final int WINNER = 3;
+    private static final int PRIZE = 4;
+    private static final int WINNER_PRIZE = 5;
     private List<Tournament> tournaments;
 
     public MyTableModel(APIForTournament api) {
         this.tournaments = api.getListOfParticipantOnScreen();
+    }
 
+    @Override
+    public String getColumnName(int column) {
+        return header[column];
     }
 
     @Override
@@ -21,41 +32,24 @@ public class MyTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return header.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-       /* if (rowIndex == 0) {
-            switch (columnIndex) {
-                case 0:
-                    return "Name of tournament";
-                case 1:
-                    return "Kind of sport";
-                case 2:
-                    return "Date";
-                case 3:
-                    return "Name of winner";
-                case 4:
-                    return "Prize";
-                case 5:
-                    return "Prize of winner";
-            }
-        } else {*/
             Tournament n = tournaments.get(rowIndex);
             switch (columnIndex) {
-                case 0:
+                case TOURNAMENT:
                     return n.getNameOfTournament();
-                case 1:
+                case SPORT:
                     return n.getKindOfSport();
-                case 2:
+                case DATE:
                     return n.getDate();
-                case 3:
+                case WINNER:
                     return n.getWinner();
-                case 4:
+                case PRIZE:
                     return n.getPrize();
-                case 5:
+                case WINNER_PRIZE:
                     return n.getPrizeOfWinner();
                 default:
                     return null;

@@ -1,6 +1,5 @@
 package view;
 
-import exception.InvalidDataException;
 import model.Sport;
 
 import javax.swing.*;
@@ -14,20 +13,26 @@ public class Dialog extends JDialog {
      JTextField textDate;
      JComboBox<Sport> checkSport;
      JTextField textNameOfWinner;
+     JTextField prizeOfWinner;
      JTextField textPrize;
-    private JPanel contents;
+    private JPanel fieldsPanel;
+    private JPanel buttonPanel;
+    private JPanel mainPanel;
     private JFrame frame;
     JButton button;
 
-    public Dialog(){
+    public Dialog(int fields){
         frame = new JFrame();
         dialog = new JDialog();
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        dialog.setSize(400, 400);
-        contents = new JPanel();
-        panelSettingsMethod(contents);
-        textName = new JTextField("  Tournament  ");
-        textDate = new JTextField("  Date of tournament  ");
+        fieldsPanel = new JPanel();
+        buttonPanel = new JPanel();
+        mainPanel = new JPanel();
+        panelSettingsMethod(mainPanel);
+        panelSettingsMethod(buttonPanel);
+        panelSettingsMethod(fieldsPanel);
+        textName = new JTextField();
+        textDate = new JTextField();
         checkSport = new JComboBox();
         checkSport.addItem(Sport.FOOTBALL);
         checkSport.addItem(Sport.HOCKEY);
@@ -36,40 +41,58 @@ public class Dialog extends JDialog {
         checkSport.addItem(Sport.PINGPONG);
         checkSport.addItem(Sport.TENNIS);
 
-        textNameOfWinner = new JTextField("  winner  ");
-        textPrize = new JTextField("   prize   ");
+        textNameOfWinner = new JTextField();
+        textPrize = new JTextField();
+
         button = new JButton();
 
-        contents.add(textName);
-        contents.add(textNameOfWinner);
-        contents.add(textDate);
-        contents.add(textPrize);
-        contents.add(checkSport);
-        contents.add(button);
+        fieldsPanel.add(textName);
+        fieldsPanel.add(textNameOfWinner);
+        fieldsPanel.add(textDate);
+        fieldsPanel.add(textPrize);
+        fieldsPanel.add(checkSport);
+        //fieldsPanel.add(prizeOfWinner);
+        buttonPanel.add(button);
 
+        mainPanel.add(fieldsPanel);
+        mainPanel.add(buttonPanel);
 
-        frame.getContentPane().add(contents);
+        fieldsPanel.setLayout(new GridLayout(6, 2, 15, 15));
+
+        if (fields == 5){
+            String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date"};
+            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate};
+            for(int i = 0; i < header.length; i++) {
+                fieldsPanel.add(new JLabel(header[i]));
+                fieldsPanel.add(components[i]);
+            }
+        }
+        if (fields == 6){
+            prizeOfWinner = new JTextField();
+            fieldsPanel.add(prizeOfWinner);
+            String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date", "Diapason of winner prize"};
+            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate, prizeOfWinner};
+            for(int i = 0; i < header.length; i++) {
+                fieldsPanel.add(new JLabel(header[i]));
+                fieldsPanel.add(components[i]);
+            }
+        }
+        frame.getContentPane().add(mainPanel);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date"};
-        Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate};
-        for(int i = 0; i < header.length; i++) {
-           contents.add(new JLabel(header[i]));
-           contents.add(components[i]);
-        }
 
-        contents.setLayout(new FlowLayout(FlowLayout.CENTER));
 
+        mainPanel.setMinimumSize(new Dimension(200, 200));
+
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     }
 
-
     public void panelSettingsMethod(JPanel panel){
-        // panel.setPreferredSize(new Dimension(200,120));
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createBevelBorder(BevelBorder.RAISED),
-                BorderFactory.createEmptyBorder(25, 25, 25, 25)));
+                BorderFactory.createEmptyBorder(15, 15, 15, 15)));
     }
 
     public String getName(){

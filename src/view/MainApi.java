@@ -22,7 +22,6 @@ public class MainApi {
         apiForTournament = new APIForTournament();
         table = new Table(apiForTournament);
         container.add(table.getPanel());
-        //container.add(table.getPanelButtons());
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 

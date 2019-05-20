@@ -3,13 +3,17 @@ package control.specification;
 import model.Tournament;
 
 public class ByPrizeOfWinnerSpecification implements Specification<Tournament> {
-    private int searchPrizeOfWinner;
+    private double maxPrize;
+    private double minPrize;
 
-    public ByPrizeOfWinnerSpecification(int prizeOfWinner){
-        this.searchPrizeOfWinner = prizeOfWinner;
+    public ByPrizeOfWinnerSpecification(double minPrize, double maxPrize){
+        this.maxPrize = maxPrize;
+        this.minPrize = minPrize;
     }
     @Override
     public boolean match(Tournament bean) {
-        return searchPrizeOfWinner == bean.getPrizeOfWinner();
+        if (bean.getPrizeOfWinner() > minPrize && bean.getPrizeOfWinner() < maxPrize)
+            return true;
+        else return false;
     }
 }

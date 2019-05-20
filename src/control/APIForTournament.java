@@ -14,9 +14,9 @@ public class APIForTournament {
     private static Logger logger = Logger.getLogger(APIForTournament.class.getName());
     private List<Tournament> listOfParticipants;
     private List<Tournament> listOfParticipantOnScreen;
-    private int currentPage = 1;
+ //   private int currentPage = 1;
     private int countOfParticipantsOnOnePage;
-    private int pages;
+ //   private int pages;
 
     private int countAfterSearch;
 
@@ -24,7 +24,7 @@ public class APIForTournament {
         listOfParticipants = new ArrayList<>();
         listOfParticipantOnScreen = new ArrayList<>();
         countOfParticipantsOnOnePage = 5;
-        pages = 1;
+      //  pages = 1;
 
      //   addParticipant(new Tournament("Tohsak", Sport.FOOTBALL, "ndknwk ekwndnek dnjw", 600, 138));
      //   addParticipant(new Tournament("Tohfwdsssak", Sport.FOOTBALL, "ndknwkdds ekwndnek dnjw", 200, 12));
@@ -46,17 +46,14 @@ public class APIForTournament {
 */
     public void addParticipant(Tournament tournament){
         listOfParticipants.add(tournament);
-        if (pages < listOfParticipants.size()){
-            pages++;
-        }
-        update();
+       // update();
     }
 
     public void deleteParticipant(Tournament tournament) throws Exception {
         if (listOfParticipants.contains(tournament)) {
             listOfParticipants.remove(tournament);
         } else throw new Exception("No such Participant");
-        update();
+        //update();
     }
 
     public List<Tournament> findBy(Specification specification){
@@ -64,6 +61,7 @@ public class APIForTournament {
         for (Tournament tournament: listOfParticipants){
             if (specification.match(tournament)) {
                 result.add(tournament);
+                countAfterSearch++;
                 logger.log(Level.INFO, "find" + tournament);
             }
         }
@@ -77,7 +75,7 @@ public class APIForTournament {
     public void sort(Comparator comp){
         listOfParticipants.sort(comp);
     }
-
+/*
     public int getCurrentPage(){
         return currentPage;
     }
@@ -93,7 +91,7 @@ public class APIForTournament {
     public void setCurrentPage(int page){
         this.currentPage = page;
     }
-
+*/
     public int getCountOfParticipantsOnOnePage(){
         return countOfParticipantsOnOnePage;
     }
@@ -102,15 +100,13 @@ public class APIForTournament {
         if (count > 0) {
             this.countOfParticipantsOnOnePage = count;
         }
-        update();
+      //  update();
     }
-
-    public void setListOfParticipantOnScreen(){}
 
     public List<Tournament> getListOfParticipantOnScreen(){
         return listOfParticipantOnScreen;
     }
-
+/*
     public int getPages(){
         return pages;
     }
@@ -150,11 +146,11 @@ public class APIForTournament {
         currentPage = 1;
         update();
     }
-
+*/
     public List<Tournament> getListOfParticipants() {
         return listOfParticipants;
     }
-
+/*
     private void updateInformationOnScreen() {
         int start = (currentPage - 1) * countOfParticipantsOnOnePage;
         int finish;
@@ -182,7 +178,7 @@ public class APIForTournament {
         updateAllPages();
         updateInformationOnScreen();
     }
-
+*/
     @Override
     public String toString() {
         return "APIForTournament{" +
