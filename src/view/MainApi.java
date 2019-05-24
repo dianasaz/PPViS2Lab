@@ -27,9 +27,6 @@ public class MainApi {
     }
 
     public static void main(String... args) throws InvalidDataException {
-        MainApi mainApi = new MainApi();
-
-       // Tournament tournament = new Tournament("Tohsak", Sport.FOOTBALL, new FullName("ndknwk ekwndnek dnjw"), 600);
-        //apiForTournament.addParticipant(tournament);
+        new MainApi();
     }
 }

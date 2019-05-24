@@ -1,11 +1,6 @@
 package view;
 
 import control.APIForTournament;
-import control.specification.ByNameOfTournamentSpecification;
-import control.specification.ByNameOfWinnerSpecification;
-import control.specification.ByPrizeOfWinnerSpecification;
-import control.specification.ByPrizeSpecification;
-import control.specification.BySportSpecification;
 import model.Sport;
 import model.Tournament;
 
@@ -14,8 +9,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -79,11 +73,7 @@ public class Table {
         page = 1;
         pages = 1;
 
-        apiForTournament.addParticipant(new Tournament("Games", Sport.FOOTBALL, "Vasya Pupkin", 600, 21));
-        apiForTournament.addParticipant(new Tournament("Olympic games", Sport.FOOTBALL, "Petya Kozlov", 200, 12));
-        apiForTournament.addParticipant(new Tournament("European games", Sport.FOOTBALL, "Vlad Ponchikod", 400, 14));
-
-        update();
+        updateInformation();
         table.setSize(new Dimension(600, 600));
         table.setPreferredScrollableViewportSize(new Dimension(250, 100));
 
@@ -96,15 +86,20 @@ public class Table {
                 dialog.button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (dialog.getTextName().length() == 0 || dialog.getNameOfWinner().length() == 0 || dialog.getPrize().length() == 0 || dialog.getDate().length() == 0 || dialog.checkSport.getSelectedItem() == Sport.NOTHING) {
+                        if (dialog.getTextName().length() == 0 || dialog.getNameOfWinner().length() == 0 || dialog.getPrize().length() == 0 || dialog.checkSport.getSelectedItem() == Sport.NOTHING) {
                             JOptionPane.showMessageDialog(null, "Check information you put", "Error", JOptionPane.PLAIN_MESSAGE);
                         } else {
-                            Tournament tournament = new Tournament(dialog.getTextName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.getPrize()), Integer.valueOf(dialog.getDate()));
+                            Tournament tournament = null;
+                            try {
+                                tournament = new Tournament(dialog.getTextName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.getPrize()), dialog.getDate());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
                             apiForTournament.addParticipant(tournament);
                             if (pages < apiForTournament.getListOfParticipants().size()){
                                 pages++;
                             }
-                            update();
+                            updateInformation();
                             logger.log(Level.INFO, tournament+ " was added");
                         }
                     }
@@ -122,51 +117,7 @@ public class Table {
         buttonRemove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
-                Dialog dialog = new Dialog(6);
-                dialog.button.setText("remove");
-                dialog.button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                            List<Tournament> list = new ArrayList<>();
-                            boolean flag = true;
-                            while (flag) {
-                                if (dialog.getTextName().length() != 0) {
-                                    list = apiForTournament.findBy(new ByNameOfTournamentSpecification(dialog.textName.getText()));
-                                    break;
-                                }
-                                if (dialog.checkSport.getSelectedItem() != Sport.NOTHING) {
-                                    list = apiForTournament.findBy(new BySportSpecification((Sport) dialog.checkSport.getSelectedItem()));
-                                    break;
-                                }
-                                if (dialog.getNameOfWinner().length() != 0) {
-                                    list = apiForTournament.findBy(new ByNameOfWinnerSpecification(dialog.getNameOfWinner()));
-                                    break;
-                                }
-                                if (dialog.getPrizeOfWinner().length() != 0) {
-                                    String diapason = dialog.getPrizeOfWinner();
-                                    String[] strings = diapason.split(" ");
-                                    list = apiForTournament.findBy(new ByPrizeOfWinnerSpecification(Double.valueOf(strings[0]), Double.valueOf(strings[1])));
-                                    break;
-                                }
-                                if (dialog.getPrize().length() != 0) {
-                                    list = apiForTournament.findBy(new ByPrizeSpecification(Integer.valueOf(dialog.getPrize())));
-                                    break;
-                                }
-                            }
-
-                            for (Tournament tournament: list){
-                                try {
-                                    apiForTournament.deleteParticipant(tournament);
-                                } catch (Exception e1) {
-                                    e1.printStackTrace();
-                                }
-                            }
-                            update();
-
-                        }
-
-                });
+                new RemoveButton(apiForTournament, Table.this);
             }
         });
 
@@ -174,7 +125,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apiForTournament.setCountOfParticipantsOnOnePage(5);
-                update();
+                updateInformation();
             }
         });
 
@@ -182,7 +133,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apiForTournament.setCountOfParticipantsOnOnePage(10);
-                update();
+                updateInformation();
             }
         });
 
@@ -190,7 +141,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 apiForTournament.setCountOfParticipantsOnOnePage(20);
-                update();
+                updateInformation();
             }
         });
 
@@ -198,7 +149,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setFirstPage();
-                update();
+                updateInformation();
             }
         });
 
@@ -206,7 +157,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setLastPage();
-                update();
+                updateInformation();
             }
         });
 
@@ -214,7 +165,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nextPage();
-                update();
+                updateInformation();
             }
         });
 
@@ -222,7 +173,7 @@ public class Table {
             @Override
             public void actionPerformed(ActionEvent e) {
                 previousPage();
-                update();
+                updateInformation();
             }
         });
 
@@ -245,54 +196,54 @@ public class Table {
 
     }
 
-    public void panelSettingsMethod(JPanel panel){
+    private void panelSettingsMethod(JPanel panel){
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createBevelBorder(BevelBorder.RAISED),
                 BorderFactory.createEmptyBorder(25, 25, 25, 25)));
     }
 
-    private boolean notNull(int row, int col){
-        if (model.getValueAt(row, col) != null){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-
     public JPanel getPanel() {
         return mainPanel;
     }
 
-    public int getPages(){
+    private int getPages(){
         return pages;
     }
 
-    public void setFirstPage(){
+    private void setFirstPage(){
         page = 1;
-        update();
+        updateInformation();
     }
 
-    public void setLastPage(){
+    private void setLastPage(){
         page = getPages();
-        update();
+        updateInformation();
     }
 
-    public void previousPage(){
+    private void previousPage(){
         if (pages > 1){
             page--;
         }
-        update();
+        updateInformation();
     }
 
-    public void nextPage(){
+    private void nextPage(){
         if (page != pages){
             page++;
         }
-        update();
+        updateInformation();
     }
 
-    private void updateInformationOnScreen() {
+
+    public void updateInformation(){
+        int temp = apiForTournament.getListOfParticipants().size() / apiForTournament.getCountOfParticipantsOnOnePage();
+        if (apiForTournament.getListOfParticipants().size() % apiForTournament.getCountOfParticipantsOnOnePage() == 0)
+            pages = temp;
+        else
+            pages = ++temp;
+        if (pages == 0)
+            pages++;
+
         int start = (page-1) * apiForTournament.getCountOfParticipantsOnOnePage();
         int finish;
         if (apiForTournament.getListOfParticipants().size() >= page * apiForTournament.getCountOfParticipantsOnOnePage()) {
@@ -303,21 +254,8 @@ public class Table {
         apiForTournament.getListOfParticipantOnScreen().clear();
         for (int i = start; i < finish; i++)
             apiForTournament.getListOfParticipantOnScreen().add(apiForTournament.getListOfParticipants().get(i));
-    }
 
-    private void updateAllPages(){
-        int temp = apiForTournament.getListOfParticipants().size() / apiForTournament.getCountOfParticipantsOnOnePage();
-        if (apiForTournament.getListOfParticipants().size() % apiForTournament.getCountOfParticipantsOnOnePage() == 0)
-            pages = temp;
-        else
-            pages = ++temp;
-        if (pages == 0)
-            pages++;
-    }
 
-    public void update(){
-        updateAllPages();
-        updateInformationOnScreen();
         currentPage.setText(page + " of " + pages);
         model.fireTableDataChanged();
     }

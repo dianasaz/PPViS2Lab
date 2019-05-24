@@ -28,7 +28,7 @@ public class TableBase {
 
         apiForTournament.setCountOfParticipantsOnOnePage(api.getListOfParticipants().size());
 
-        update();
+        updateInformation();
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(table);
@@ -46,8 +46,18 @@ public class TableBase {
     }
 
 
-    private void updateInformationOnScreen() {
-        int start = (page - 1) * api.getCountOfParticipantsOnOnePage();
+    public void updateInformation(){
+        api.setCountOfParticipantsOnOnePage(api.getListOfParticipants().size());
+        pages = 1;/*
+        int temp = api.getListOfParticipants().size() / api.getCountOfParticipantsOnOnePage();
+        if (api.getListOfParticipants().size() % api.getCountOfParticipantsOnOnePage() == 0)
+            pages = temp;
+        else
+            pages = ++temp;
+        if (pages == 0)
+            pages++;
+*/
+        int start = (page-1) * api.getCountOfParticipantsOnOnePage();
         int finish;
         if (api.getListOfParticipants().size() >= page * api.getCountOfParticipantsOnOnePage()) {
             finish = page * api.getCountOfParticipantsOnOnePage();
@@ -57,20 +67,9 @@ public class TableBase {
         api.getListOfParticipantOnScreen().clear();
         for (int i = start; i < finish; i++)
             api.getListOfParticipantOnScreen().add(api.getListOfParticipants().get(i));
-    }
 
-    private void updateAllPages(){
-        int temp = api.getListOfParticipants().size() / api.getCountOfParticipantsOnOnePage();
-        if (api.getListOfParticipants().size() % api.getCountOfParticipantsOnOnePage() == 0)
-            pages = temp;
-        else
-            pages = ++temp;
-        if (pages == 0)
-            pages++;
-    }
 
-    public void update(){
-        updateAllPages();
-        updateInformationOnScreen();
+        //currentPage.setText(page + " of " + pages);
+        model.fireTableDataChanged();
     }
 }

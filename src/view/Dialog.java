@@ -6,22 +6,24 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 import java.awt.*;
+import java.text.ParseException;
+import java.util.Date;
 
 public class Dialog extends JDialog {
     private JDialog dialog;
-     JTextField textName;
-     JTextField textDate;
-     JComboBox<Sport> checkSport;
-     JTextField textNameOfWinner;
-     JTextField prizeOfWinner;
-     JTextField textPrize;
+    JTextField textName;
+    DatePicker textDate;
+    JComboBox<Sport> checkSport;
+    JTextField textNameOfWinner;
+    JTextField prizeOfWinner;
+    JTextField textPrize;
     private JPanel fieldsPanel;
     private JPanel buttonPanel;
     private JPanel mainPanel;
     private JFrame frame;
     JButton button;
 
-    public Dialog(int fields){
+    public Dialog(int fields) {
         frame = new JFrame();
         dialog = new JDialog();
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -32,7 +34,7 @@ public class Dialog extends JDialog {
         panelSettingsMethod(buttonPanel);
         panelSettingsMethod(fieldsPanel);
         textName = new JTextField();
-        textDate = new JTextField();
+        textDate = new DatePicker();
         checkSport = new JComboBox();
         checkSport.addItem(Sport.NOTHING);
         checkSport.addItem(Sport.FOOTBALL);
@@ -49,7 +51,7 @@ public class Dialog extends JDialog {
 
         fieldsPanel.add(textName);
         fieldsPanel.add(textNameOfWinner);
-        fieldsPanel.add(textDate);
+        fieldsPanel.add(textDate.getDatePicker());
         fieldsPanel.add(textPrize);
         fieldsPanel.add(checkSport);
         buttonPanel.add(button);
@@ -59,20 +61,20 @@ public class Dialog extends JDialog {
 
         fieldsPanel.setLayout(new GridLayout(6, 2, 15, 15));
 
-        if (fields == 5){
+        if (fields == 5) {
             String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date"};
-            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate};
-            for(int i = 0; i < header.length; i++) {
+            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate.getDatePicker()};
+            for (int i = 0; i < header.length; i++) {
                 fieldsPanel.add(new JLabel(header[i]));
                 fieldsPanel.add(components[i]);
             }
         }
-        if (fields == 6){
+        if (fields == 6) {
             prizeOfWinner = new JTextField();
             fieldsPanel.add(prizeOfWinner);
-            String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date", "Diapason of winner prize"};
-            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate, prizeOfWinner};
-            for(int i = 0; i < header.length; i++) {
+            String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date", "winner prize"};
+            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate.getDatePicker(), prizeOfWinner};
+            for (int i = 0; i < header.length; i++) {
                 fieldsPanel.add(new JLabel(header[i]));
                 fieldsPanel.add(components[i]);
             }
@@ -83,39 +85,33 @@ public class Dialog extends JDialog {
         frame.setVisible(true);
         dialog.pack();
 
-
-
-        mainPanel.setMinimumSize(new Dimension(500, 500));
-
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     }
 
-    public void panelSettingsMethod(JPanel panel){
+    public void panelSettingsMethod(JPanel panel) {
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createBevelBorder(BevelBorder.RAISED),
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)));
     }
 
-    public String getTextName(){
+    public String getTextName() {
         return textName.getText();
     }
 
-    public String getPrize(){
+    public String getPrize() {
         return textPrize.getText();
     }
 
-    public String getDate(){
-        return textDate.getText();
+    public Date getDate() throws ParseException {
+        return textDate.getDate();
     }
 
-    public String getNameOfWinner(){
+    public String getNameOfWinner() {
         return textNameOfWinner.getText();
     }
 
-    public String getPrizeOfWinner(){
+    public String getPrizeOfWinner() {
         return prizeOfWinner.getText();
     }
-
-
 
 }

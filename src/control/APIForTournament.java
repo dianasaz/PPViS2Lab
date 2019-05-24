@@ -4,7 +4,6 @@ import control.specification.Specification;
 import model.Tournament;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,9 +13,7 @@ public class APIForTournament {
     private static Logger logger = Logger.getLogger(APIForTournament.class.getName());
     private List<Tournament> listOfParticipants;
     private List<Tournament> listOfParticipantOnScreen;
- //   private int currentPage = 1;
     private int countOfParticipantsOnOnePage;
- //   private int pages;
 
     private int countAfterSearch;
 
@@ -26,7 +23,7 @@ public class APIForTournament {
         countOfParticipantsOnOnePage = 5;
     }
 
-    public void addParticipant(Tournament tournament){
+    public void addParticipant(Tournament tournament) {
         listOfParticipants.add(tournament);
     }
 
@@ -36,33 +33,29 @@ public class APIForTournament {
         } else throw new Exception("No such Participant");
     }
 
-    public List<Tournament> findBy(Specification specification){
+    public List<Tournament> findBy(Specification specification) {
         List<Tournament> result = new ArrayList<>();
-        for (Tournament tournament: listOfParticipants){
+        for (Tournament tournament : listOfParticipants) {
             if (specification.match(tournament)) {
                 result.add(tournament);
-                countAfterSearch++;
+                //countAfterSearch++;
                 logger.log(Level.INFO, "find" + tournament);
             }
         }
         return result;
     }
 
-    public int getCountAfterSearch(){
-        return countAfterSearch;
-    }
-
-    public int getCountOfParticipantsOnOnePage(){
+    public int getCountOfParticipantsOnOnePage() {
         return countOfParticipantsOnOnePage;
     }
 
-    public void setCountOfParticipantsOnOnePage(int count){
+    public void setCountOfParticipantsOnOnePage(int count) {
         if (count > 0) {
             this.countOfParticipantsOnOnePage = count;
         }
     }
 
-    public List<Tournament> getListOfParticipantOnScreen(){
+    public List<Tournament> getListOfParticipantOnScreen() {
         return listOfParticipantOnScreen;
     }
 

@@ -37,24 +37,22 @@ public class MyTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-            Tournament n = tournaments.get(rowIndex);
-            switch (columnIndex) {
-                case TOURNAMENT:
-                    return n.getNameOfTournament();
-                case SPORT:
-                    return n.getKindOfSport();
-                case DATE:
-                    return n.getDate();
-                case WINNER:
-                    return n.getWinner();
-                case PRIZE:
-                    return n.getPrize();
-                case WINNER_PRIZE:
-                    return n.getPrizeOfWinner();
-                default:
-                    return null;
-            }
-       // }
-     //   return null;
+        Tournament n = tournaments.get(rowIndex);
+        switch (columnIndex) {
+            case TOURNAMENT:
+                return n.getNameOfTournament();
+            case SPORT:
+                return n.getKindOfSport();
+            case DATE:
+                return n.getDateOfTournament();
+            case WINNER:
+                return n.getWinner();
+            case PRIZE:
+                return n.getPrize();
+            case WINNER_PRIZE:
+                return n.getPrizeOfWinner();
+            default:
+                return null;
+        }
     }
 }
