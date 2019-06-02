@@ -12,13 +12,17 @@ import java.io.IOException;
 public class xmlParserTest {
 
     @Test
-    public void test(){
-        APIForTournament api = new APIForTournament();
-        XmlParser.load(api, "G:\\УНИВЕР\\laba2\\toParse.xml");
+    public void test() {
+/*
 
-        APIForTournament apiForTournament = new APIForTournament();
+        APIForTournament apiForTournament = new APIForTournament()
+
+        XmlParser.save(new APIForTournament(), "file.txt");
+
+        APIForTournament api = XmlParser.save(APIForTournament api);
 
         Assert.assertEquals(api.getListOfParticipants(), apiForTournament.getListOfParticipants());
+    }*/
     }
 
 }

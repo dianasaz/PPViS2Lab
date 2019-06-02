@@ -42,19 +42,17 @@ public class Table {
     private int pages;
     private APIForTournament apiForTournament;
 
+    private FileMenu fileMenu;
+
     private static Logger logger = Logger.getLogger(Table.class.getName());
 
-    public Table(APIForTournament api) throws InvalidDataException {
+    public Table(APIForTournament api, int i) throws InvalidDataException {
         this.apiForTournament = api;
         mainPanel = new JPanel();
         panelButtons = new JPanel();
         pagePanel = new JPanel();
         pagesPanel = new JPanel();
         panelSettingsMethod(mainPanel);
-
-        addToTableBtn = new JButton("Добавить в таблицу");
-        buttonSearch = new JButton("Поиск");
-        buttonRemove = new JButton("Удалить");
 
         firstPage = new JButton("1");
         lastPage = new JButton("last");
@@ -70,6 +68,7 @@ public class Table {
         table = new JTable(model);
         scrollPane = new JScrollPane(table);
 
+
         page = 1;
         pages = 1;
 
@@ -77,49 +76,7 @@ public class Table {
         table.setSize(new Dimension(600, 600));
         table.setPreferredScrollableViewportSize(new Dimension(250, 100));
 
-        addToTableBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
 
-                Dialog dialog = new Dialog(5);
-                dialog.button.setText("add");
-                dialog.button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (dialog.getTextName().length() == 0 || dialog.getNameOfWinner().length() == 0 || dialog.getPrize().length() == 0 || dialog.checkSport.getSelectedItem() == Sport.NOTHING) {
-                            JOptionPane.showMessageDialog(null, "Check information you put", "Error", JOptionPane.PLAIN_MESSAGE);
-                        } else {
-                            Tournament tournament = null;
-                            try {
-                                tournament = new Tournament(dialog.getTextName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.getPrize()), dialog.getDate());
-                            } catch (ParseException e1) {
-                                e1.printStackTrace();
-                            }
-                            apiForTournament.addParticipant(tournament);
-                            if (pages < apiForTournament.getListOfParticipants().size()){
-                                pages++;
-                            }
-                            updateInformation();
-                            logger.log(Level.INFO, tournament+ " was added");
-                        }
-                    }
-                });
-            }
-        });
-
-        buttonSearch.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                new SearchButton(apiForTournament);
-            }
-        });
-
-        buttonRemove.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                new RemoveButton(apiForTournament, Table.this);
-            }
-        });
 
         fiveTournamentsOnPage.addActionListener(new ActionListener() {
             @Override
@@ -179,9 +136,6 @@ public class Table {
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.add(scrollPane);
-        panelButtons.add(addToTableBtn);
-        panelButtons.add(buttonSearch);
-        panelButtons.add(buttonRemove);
         pagesPanel.add(previousPage);
         pagesPanel.add(firstPage);
         pagesPanel.add(lastPage);
@@ -192,8 +146,52 @@ public class Table {
         pagePanel.add(currentPage);
         mainPanel.add(pagePanel);
         mainPanel.add(pagesPanel);
-        mainPanel.add(panelButtons);
+        if (i == 1) {
+            addToTableBtn = new JButton("Добавить в таблицу");
+            buttonSearch = new JButton("Поиск");
+            buttonRemove = new JButton("Удалить");
 
+            addToTableBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+
+                    Dialog dialog = new Dialog(5, "", apiForTournament);
+                    dialog.button.setText("add");
+                    dialog.button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            if (dialog.getTextName().length() == 0 || dialog.getNameOfWinner().length() == 0 || dialog.getPrize().length() == 0 || dialog.checkSport.getSelectedItem() == Sport.NOTHING) {
+                                JOptionPane.showMessageDialog(null, "Check information you put", "Error", JOptionPane.PLAIN_MESSAGE);
+                            } else {
+                                Tournament tournament = null;
+                                try {
+                                    tournament = new Tournament(dialog.getTextName(), (Sport) dialog.checkSport.getSelectedItem(), dialog.getNameOfWinner(), Integer.valueOf(dialog.getPrize()), dialog.getDate());
+                                } catch (ParseException e1) {
+                                    e1.printStackTrace();
+                                }
+                                apiForTournament.addParticipant(tournament);
+                                if (pages < apiForTournament.getListOfParticipants().size()) {
+                                    pages++;
+                                }
+                                updateInformation();
+                                logger.log(Level.INFO, tournament + " was added");
+                            }
+                        }
+                    });
+                }
+            });
+
+            buttonSearch.addActionListener(new SearchButton(apiForTournament));
+
+            buttonRemove.addActionListener(new RemoveButton(apiForTournament, Table.this));
+
+            panelButtons.add(addToTableBtn);
+            panelButtons.add(buttonSearch);
+            panelButtons.add(buttonRemove);
+
+
+            mainPanel.add(panelButtons);
+        }
     }
 
     private void panelSettingsMethod(JPanel panel){

@@ -75,6 +75,10 @@ public class Tournament {
         return dateFormat.format(date);
     }
 
+    public Date getDate(){
+        return date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

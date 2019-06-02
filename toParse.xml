@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><tournaments><tournament><name>Champion </name><date>12.12.2013</date><winner>roma</winner><prize>1290</prize><sport>FOOTBALL</sport></tournament><tournament><name>kola koka</name><date>31.10.2017</date><winner>drugh</winner><prize>4500</prize><Sport>HOCKEY</Sport></tournament><tournament><name>hello</name><date>13.11.2013</date><winner>egor</winner><prize>9000</prize><sport>SWIMMING</sport></tournament></tournaments>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tournaments>
+    <tournament>
+        <name>Champion</name>
+        <date>Sat May 25 13:07:28 GMT+06:00 2019</date>
+        <winner>roma</winner>
+        <prize>1290</prize>
+        <sport>FOOTBALL</sport>
+    </tournament>
+    <tournament>
+        <name>kola koka</name>
+        <date>Sat May 25 13:07:28 GMT+06:00 2019</date>
+        <winner>drugh</winner>
+        <prize>4500</prize>
+        <Sport>HOCKEY</Sport>
+    </tournament>
+    <tournament>
+        <name>hello</name>
+        <date>Sat May 25 13:07:28 GMT+06:00 2019</date>
+        <winner>egor</winner>
+        <prize>9000</prize>
+        <sport>SWIMMING</sport>
+    </tournament>
+</tournaments>

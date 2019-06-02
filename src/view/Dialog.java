@@ -1,5 +1,6 @@
 package view;
 
+import control.APIForTournament;
 import model.Sport;
 
 import javax.swing.*;
@@ -22,8 +23,11 @@ public class Dialog extends JDialog {
     private JPanel mainPanel;
     private JFrame frame;
     JButton button;
+    Table table;
 
-    public Dialog(int fields) {
+    JLabel countAfterSearch;
+
+    public Dialog(int fields, String line, APIForTournament api){
         frame = new JFrame();
         dialog = new JDialog();
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -49,6 +53,7 @@ public class Dialog extends JDialog {
 
         button = new JButton();
 
+
         fieldsPanel.add(textName);
         fieldsPanel.add(textNameOfWinner);
         fieldsPanel.add(textDate.getDatePicker());
@@ -69,7 +74,17 @@ public class Dialog extends JDialog {
                 fieldsPanel.add(components[i]);
             }
         }
-        if (fields == 6) {
+        if (fields == 6 && line.equalsIgnoreCase("Search")) {
+            prizeOfWinner = new JTextField();
+            fieldsPanel.add(prizeOfWinner);
+            String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date", "winner prize"};
+            Component[] components = {textName, checkSport, textNameOfWinner, textPrize, textDate.getDatePicker(), prizeOfWinner};
+            for (int i = 0; i < header.length; i++) {
+                fieldsPanel.add(new JLabel(header[i]));
+                fieldsPanel.add(components[i]);
+            }
+            addPanel(api);
+        } else if (fields == 6) {
             prizeOfWinner = new JTextField();
             fieldsPanel.add(prizeOfWinner);
             String header[] = new String[]{"name", "SPORT", "Name of Winner", "Prize", "Date", "winner prize"};
@@ -79,8 +94,11 @@ public class Dialog extends JDialog {
                 fieldsPanel.add(components[i]);
             }
         }
+
         frame.getContentPane().add(mainPanel);
-        frame.setSize(360, 400);
+        if (line.equalsIgnoreCase("Search")){
+            frame.setSize(500, 800);
+        } else frame.setSize(360, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         dialog.pack();
@@ -114,4 +132,21 @@ public class Dialog extends JDialog {
         return prizeOfWinner.getText();
     }
 
+    public void addPanel(APIForTournament apiForTournament){
+        JPanel panel = new JPanel();
+        try {
+            table = new Table(apiForTournament, 8);
+            panel.add(table.getPanel());
+            countAfterSearch = new JLabel();
+            panel.add(countAfterSearch);
+        } catch (InvalidDataException e) {
+            e.printStackTrace();
+        }
+        panelSettingsMethod(panel);
+        mainPanel.add(panel);
+    }
+
+    public Table getTable(){
+        return table;
+    }
 }

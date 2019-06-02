@@ -15,7 +15,6 @@ public class APIForTournament {
     private List<Tournament> listOfParticipantOnScreen;
     private int countOfParticipantsOnOnePage;
 
-    private int countAfterSearch;
 
     public APIForTournament() {
         listOfParticipants = new ArrayList<>();
@@ -33,12 +32,15 @@ public class APIForTournament {
         } else throw new Exception("No such Participant");
     }
 
+    public void deleteAll(){
+        listOfParticipants.clear();
+    }
+
     public List<Tournament> findBy(Specification specification) {
         List<Tournament> result = new ArrayList<>();
         for (Tournament tournament : listOfParticipants) {
             if (specification.match(tournament)) {
                 result.add(tournament);
-                //countAfterSearch++;
                 logger.log(Level.INFO, "find" + tournament);
             }
         }
